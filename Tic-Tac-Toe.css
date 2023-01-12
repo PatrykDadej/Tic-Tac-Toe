@@ -1,0 +1,196 @@
+:root {
+    --cell-size:100px;
+  }
+  
+  *,
+  *::after,
+  *::before {
+    box-sizing:border-box;
+  }
+  
+  .welcomeScreen,
+  .endGameScreen {
+    font-family: 'Roboto', sans-serif;
+    color:black;
+    background-color:white;
+    font-size:30px;
+    padding:20px;
+    border:1px solid black;
+    border-radius:20px;
+    position:fixed;
+    top:50%;
+    left:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transform: translate(-50%, -50%) scale(0);
+    z-index:10;
+  }
+  
+  .welcomeScreen.active,
+  .endGameScreen.active {
+      transform: translate(-50%, -50%) scale(1);
+  }
+  
+  #start {
+    margin-top:30px;
+    padding:15px;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:20px;
+    background-color:white;
+    border:1px solid black;
+  }
+  
+  input {
+    height:30px;
+    border:1px solid black;
+    font-size:20px;
+    font-weight:bold;
+  }
+  
+  .IL>* {
+    margin:5px;
+  }
+  
+  .overlay {
+    opacity:0;
+    background-color:rgba(0,0,0,0.4);
+    position:fixed;
+    right:0px;
+    left:0px;
+    top:0px;
+    bottom:0px;
+    pointer-events:none;
+  }
+  
+  .overlay.active {
+    opacity:1;
+    z-index:5;
+    pointer-events:all;
+  }
+  
+  .main {
+    display:flex;
+    align-items:center;
+    justify-content:center
+  }
+  
+  .game {
+    display:grid;
+    grid-template-rows:repeat(3, auto);
+    grid-template-columns:repeat(3, auto);
+  }
+  
+  .cell {
+    width:var(--cell-size);
+    height:var(--cell-size);
+    background-color:white;
+    border:1px solid black;
+    transition-duration:200ms;
+    cursor:pointer;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  
+  #field1,
+  #field2,
+  #field3 {
+    border-top:none;
+  }
+  
+  #field7,
+  #field8,
+  #field9 {
+    border-bottom:none;
+  }
+  
+  #field1,
+  #field4,
+  #field7 {
+    border-left:none;
+  }
+  
+  #field3,
+  #field6,
+  #field9 {
+    border-right:none;
+  }
+  
+  /* X MARKED */
+  /* X MARKED */
+  /* X MARKED */
+  
+  .cell.xMarked {
+    cursor:not-allowed;
+  }
+  
+  .xMarked::after,
+  .xMarked::before,
+  .game.x .cell:not(.xMarked):not(.oMarked):hover::before,
+  .game.x .cell:not(.xMarked):not(.oMarked):hover::after {
+    width:calc(var(--cell-size) * 0.9);
+    font-size:20px;
+    color:grey;
+    background-color:grey;
+    content:' .';
+    position:absolute;
+    font-color:grey;
+  }
+  
+  .game.x .cell:not(.xMarked):not(.oMarked):hover::before,
+  .game.x .cell:not(.xMarked):not(.oMarked):hover::after {
+      background-color:lightgrey;
+      color:lightgrey;
+  }
+  
+  .xMarked::before,
+  .game.x .cell:hover:before {
+    transform:rotate(45deg);
+  }
+  
+  .xMarked::after,
+  .game.x .cell:hover:after {
+    transform:rotate(-45deg);
+  }
+  /*  O MARKED  */
+  /*  O MARKED  */
+  /*  O MARKED  */
+  
+  .cell.oMarked {
+    cursor:not-allowed;
+  }
+  
+  .oMarked::after,
+  .oMarked::before,
+  .game.o .cell:not(.oMarked):not(.xMarked)::before,
+  .game.o .cell:not(.oMarked):not(.xMarked)::after{
+    position:absolute;
+    content:'';
+    border-radius:50%;
+  }
+  
+  .oMarked::before,
+  .game.o .cell:not(.oMarked):not(.xMarked):hover::before{
+    width:calc(var(--cell-size)*0.9);
+    height:calc(var(--cell-size)*0.9);
+    background-color:grey;
+  }
+  .oMarked::after,
+  .game.o .cell:not(.oMarked):not(.xMarked):hover::after{
+     width:calc(var(--cell-size)*0.5);
+    height:calc(var(--cell-size)*0.5);
+    background-color:white;
+  }
+  
+  .game.o .cell:not(.oMarked):not(.xMarked):hover::before {
+    background-color:lightgrey;
+  }
+  .game.o .cell:not(.oMarked):not(.xMarked):hover::after {
+    background-color:white;
+  }
+  
+  

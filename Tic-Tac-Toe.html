@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="Tic-Tac-Toe.js"></script>
+    <link rel="stylesheet" href="Tic-Tac-Toe.css">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="welcomeScreen active">
+  <h2>Welcome to Tic Tac Toe Game !</h2>
+  <p>Provide names for both players and Start the game.<br>X Player starts the game</p>
+  
+  <form>
+   <div class="IL">
+   <label for="playerXname">X Player</label>
+    <input type="text" id="playerXname">
+  </div>
+  <div class="IL">
+    <label for="playerOname">O Player</label>
+    <input type="text" id="playerOname">
+  </div>
+    
+  </form>
+  
+  <button id="start"> Start Game</button>
+
+</div>
+
+<div class="endGameScreen">
+  <p class="result"></p>
+  <button id="restart">Play Again !</button>
+</div>
+
+<div class="overlay active">
+  
+</div>
+  
+<div class="main">
+  <div class="game x">
+    <div class="cell" id="field1"></div>
+    <div class="cell" id="field2"></div>
+    <div class="cell" id="field3"></div>
+    <div class="cell" id="field4"></div>
+    <div class="cell" id="field5"></div>
+    <div class="cell" id="field6"></div>
+    <div class="cell" id="field7"></div>
+    <div class="cell" id="field8"></div>
+    <div class="cell" id="field9"></div>
+  </div>
+</div>
+</body>
+</html>

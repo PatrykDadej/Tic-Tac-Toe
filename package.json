@@ -1,0 +1,28 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Tic-Tac-Toe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatrykDadej/Tic-Tac-Toe.git"
+  },
+  "author": "Patryk Dadej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatrykDadej/Tic-Tac-Toe/issues"
+  },
+  "homepage": "https://github.com/PatrykDadej/Tic-Tac-Toe#readme",
+  "dependencies": {
+    "include": "^1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.4",
+    "prettier": "2.8.2"
+  }
+}
