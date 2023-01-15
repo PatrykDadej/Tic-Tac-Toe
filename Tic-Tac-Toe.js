@@ -7,19 +7,28 @@ const overlaySelector = document.querySelector('.overlay');
 const restartSelector = document.querySelector('#restart');
 const welcomeScreenSelector = document.querySelector('.welcomeScreen');
 const resultSelector = document.querySelector('.result');
+let drawArray = [];
 
-function test() {
+function erase() {
   allCells.forEach((element) => {
     element.classList.remove('oMarked');
     element.classList.remove('xMarked');
   });
 }
 
-// function clearBoard() {
-//   for (let p = 1; p <=9; p++) {
-//     select
-//   }
-// }
+function drawChecker() {
+  drawArray = [];
+  allCells.forEach((validator) => {
+    if (validator.getAttribute('class').includes('oMarked') || validator.getAttribute('class').includes('xMarked')) {
+      drawArray.push(validator.getAttribute('id'));
+    }
+  });
+  if (drawArray.length == 9) {
+    const popup = document.querySelector('.endGameScreen');
+    resultSelector.textContent = 'Draw !';
+    openPopup(popup);
+  }
+}
 
 restartSelector.addEventListener('click', () => {
   closePopup();
@@ -33,7 +42,7 @@ function closePopup() {
   overlaySelector.classList.remove('active');
   window.playerX = player(xInput.value);
   window.playerO = player(oInput.value);
-  test();
+  erase();
 }
 
 function openPopup(popup) {
@@ -47,7 +56,6 @@ startGameSelector.addEventListener('click', () => {
   } else {
     closePopup();
   }
-
 });
 
 const player = function (name) {
@@ -73,7 +81,7 @@ const player = function (name) {
       const popup = document.querySelector('.endGameScreen');
       resultSelector.textContent = `${playerName} has won the Game !`;
       openPopup(popup);
-    }
+    } else { return false; }
   };
   return {
     playerName, markField, scoredFields, checker,
@@ -89,12 +97,18 @@ allCells.forEach((cell) => {
       gameSelector.classList.add('o');
       playerX.markField(cell.getAttribute('id'));
       playerX.checker();
+      if (playerX.checker() == false) {
+        drawChecker();
+      }
     } else if (gameSelector.classList.contains('o')) {
       cell.classList.add('oMarked');
       gameSelector.classList.remove('o');
       gameSelector.classList.add('x');
       playerO.markField(cell.getAttribute('id'));
       playerO.checker();
+      if (playerO.checker() == false) {
+        drawChecker();
+      }
     }
   });
 });

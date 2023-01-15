@@ -1,5 +1,12 @@
-:root {
+  :root {
     --cell-size:100px;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   *,
@@ -7,7 +14,12 @@
   *::before {
     box-sizing:border-box;
   }
-  
+
+  h1{
+  font-family: 'Roboto', sans-serif;
+  font-size: 100px;
+  }
+
   .welcomeScreen,
   .endGameScreen {
     font-family: 'Roboto', sans-serif;

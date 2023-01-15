@@ -2,7 +2,7 @@
   "name": "tic-tac-toe",
   "version": "1.0.0",
   "description": "",
-  "main": "Tic-Tac-Toe.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,12 +17,15 @@
   },
   "homepage": "https://github.com/PatrykDadej/Tic-Tac-Toe#readme",
   "dependencies": {
-    "include": "^1.1.0"
+    "include": "^1.1.0",
+    "loadash": "^1.0.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "eslint": "^8.31.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.4",
-    "prettier": "2.8.2"
+    "prettier": "2.8.2",
+    "webpack-cli": "^5.0.1"
   }
 }
